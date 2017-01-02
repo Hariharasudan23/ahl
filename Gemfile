@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'friendly_id', '~> 5.1.0'
 gem 'chartkick'
 gem 'will_paginate-bootstrap'
+gem 'redcarpet', '~> 3.4' # for parsing markdown
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -29,6 +30,8 @@ group :development do
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
     gem 'capistrano3-puma',   require: false
+    gem 'better_errors'
+    gem 'binding_of_caller'
 end
 
 gem 'puma'

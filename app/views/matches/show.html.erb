@@ -76,7 +76,7 @@
     <% if @man_of_the_match  and @match.report[0] %>
         <div class="row">
             <div class="col-xs-12">
-                <%= render @match.report, article: simple_format(@match.report[0].article) %>
+                <%= render @match.report, article: html(@match.report[0].article) %>
             </div>
         </div>
     <% end %>
