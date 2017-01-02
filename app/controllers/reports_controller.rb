@@ -67,8 +67,8 @@ class ReportsController < ApplicationController
   end
 
   def authenticate
-    authenticate_or_request_with_http_basic("Trespassers will be prosecuted") do |username, password|
-      username == ENV['USERNAME'] and password == ENV['ADMIN_PASSWORD']
+    authenticate_or_request_with_http_basic('Trespassers will be prosecuted') do |username, password|
+      username == ENV['USERNAME'] && password == ENV['ADMIN_PASSWORD']
     end
   end
 end
