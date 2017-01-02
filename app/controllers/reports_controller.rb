@@ -7,7 +7,7 @@ class ReportsController < ApplicationController
   end
 
   def list
-      @reports = Report.all.order(created_at: :desc)
+    @reports = Report.all.order(created_at: :desc)
   end
 
   def show
@@ -19,7 +19,6 @@ class ReportsController < ApplicationController
 
   def edit
   end
-
 
   def create
     @report = Report.new(report_params)
@@ -58,17 +57,18 @@ class ReportsController < ApplicationController
   end
 
   private
-    def set_report
-      @report = Report.friendly.find(params[:id])
-    end
 
-    def report_params
-      params.require(:report).permit(:article, :image, :caption, :match_id)
-    end
+  def set_report
+    @report = Report.friendly.find(params[:id])
+  end
 
-    def authenticate
-        authenticate_or_request_with_http_basic("Trespassers will be prosecuted") do |username, password|
-          username == ENV['USERNAME'] and password == ENV['ADMIN_PASSWORD']
-       end
+  def report_params
+    params.require(:report).permit(:article, :image, :caption, :match_id)
+  end
+
+  def authenticate
+    authenticate_or_request_with_http_basic('Trespassers will be prosecuted') do |username, password|
+      username == ENV['USERNAME'] && password == ENV['ADMIN_PASSWORD']
     end
+  end
 end

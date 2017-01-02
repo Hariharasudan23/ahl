@@ -10,7 +10,7 @@
     </div>
 
     <% @reports.each do |report| %>
-        <%= render report, article: simple_format(report.article[0..700] + "...") %>
+        <%= render report, article: html(report.article[0..700] + "...") %>
     <% end %>
 
     <div class="row">
