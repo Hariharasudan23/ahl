@@ -21,7 +21,7 @@
     <tbody>
         <% team.players.each do |player| %>
         <tr>
-            <td> <%= image_tag player.photo, height: 35, class: "img-rounded" %> </td>
+            <td> <%= image_tag player.photo_url, height: 35, class: "img-rounded" %> </td>
             <td><%= player.name %></td>
             <td><%= player.age %></td>
             <td><%= player.position %></td>
