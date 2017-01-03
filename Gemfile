@@ -15,6 +15,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'chartkick'
 gem 'will_paginate-bootstrap'
 gem 'redcarpet', '~> 3.4' # for parsing markdown
+gem 'carrierwave', '~> 1.0' # for file uploads
+gem 'rmagick'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

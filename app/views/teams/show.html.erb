@@ -128,7 +128,7 @@
           <% else %>
             <div class="thumbnail player-image">
           <% end %>
-            <%=link_to image_tag(player.photo), player_path(player) , remote: true %>
+            <%= link_to image_tag(player.photo_url), player_path(player) , remote: true %>
           </div>
         </div> <!--End of inner column -->
       <% end %>
