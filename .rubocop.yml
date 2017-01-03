@@ -1,0 +1,8 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'db/**/*'
+Documentation:
+    Enabled: false
