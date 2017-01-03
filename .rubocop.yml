@@ -6,3 +6,10 @@ AllCops:
     - 'db/**/*'
 Documentation:
     Enabled: false
+Style/BlockDelimiters:
+  Description: >-
+                Avoid using {...} for multi-line blocks (multiline chaining is
+                always ugly).
+                Prefer {...} over do...end for single-line blocks.
+  StyleGuide: '#single-line-blocks'
+  Enabled: false

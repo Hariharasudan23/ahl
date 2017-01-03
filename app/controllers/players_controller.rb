@@ -8,8 +8,8 @@ class PlayersController < ApplicationController
 
   def show
     respond_to do |format|
-     format.js
-     format.json
+      format.js
+      format.json
     end
   end
 
@@ -67,16 +67,16 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
   end
 
-  #Dont allow any other parameters
   def player_params
-    params.require(:player)
+    params
+      .require(:player)
       .permit(:name, :age, :team_id, :position, :gender, :goals_count,
               :red_cards, :green_cards, :yellow_cards, :photo)
   end
 
   def authenticate
-     authenticate_or_request_with_http_basic("Trespassers will be prosecuted") do |username, password|
-        username == ENV['USERNAME'] and password == ENV['ADMIN_PASSWORD']
+    authenticate_or_request_with_http_basic('Trespassers will be prosecuted') do |username, password|
+      username == ENV['USERNAME'] && password == ENV['ADMIN_PASSWORD']
     end
   end
 end

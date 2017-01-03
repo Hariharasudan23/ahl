@@ -3,7 +3,7 @@ class Player < ActiveRecord::Base
   has_many :goals
 
   mount_uploader :photo, PhotoUploader
-  #validations
+  # validations
   validates :name, presence: true
   validates :age, presence: true, numericality: true
   validates :team_id, presence: true
@@ -12,9 +12,9 @@ class Player < ActiveRecord::Base
   validates :green_cards, presence: true, numericality: true
   validates :red_cards, presence: true, numericality: true
   validates :yellow_cards, presence: true, numericality: true
-  validates :gender, presence: true, inclusion: { in: ['m', 'f'] }
+  validates :gender, presence: true, inclusion: { in: %w(m f) }
 
   def goals
-    Goal.where(player_id: self.id).count
+    Goal.where(player_id: id).count
   end
 end
