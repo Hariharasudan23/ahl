@@ -68,6 +68,10 @@ GEM
     capistrano3-puma (1.2.1)
       capistrano (~> 3.0)
       puma (>= 2.6)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     chartkick (1.4.1)
     coderay (1.1.1)
     coffee-rails (4.1.0)
@@ -195,6 +199,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano3-puma
+  carrierwave (~> 1.0)
   chartkick
   coffee-rails (~> 4.1.0)
   dotenv-rails
