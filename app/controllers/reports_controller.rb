@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :authenticate, except: [:show, :index]
-  before_action :find_ended_matches, only: [:new, :edit]
+  before_action :find_ended_matches, only: [:new, :create, :edit, :update]
 
   def index
     @reports = Report.paginate(page: params[:page]).order(created_at: :desc)
