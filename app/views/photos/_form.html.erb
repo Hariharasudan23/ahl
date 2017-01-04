@@ -1,9 +1,10 @@
-
-
-<%= form_for([@match,@photo]) do |f| %>
+<%= form_for([@match, @photo]) do |f| %>
   <% if @photo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+      <h2>
+        <%= pluralize(@photo.errors.count, 'error') %>
+              prohibited this photo from being saved:
+      </h2>
 
       <ul>
       <% @photo.errors.full_messages.each do |message| %>
@@ -13,15 +14,18 @@
     </div>
   <% end %>
 
-  <!--<div class="form-group">
-    <%#= f.label :match_id, class: "control-label"%><br>
-    <%#= f.number_field :match_id, class: "form-control"%>
-</div>-->
-  <div class="form-group">
-    <%= f.label :photo_url, class: "control-label" %><br>
-    <%= f.text_field :photo_url, autofocus: true, class: "form-control"%>
+<div class="jumbotron">
+  <div class="text-primary text-center text-big">
+    <%= "#{@match.first_team.name} Vs #{@match.opponent_team.name}" %>
   </div>
+</div>
+
   <div class="form-group">
-    <%= f.submit class: "btn btn-danger" %>
+    <%= f.label :picture, class: 'control-label' %><br>
+    <%= f.file_field :picture %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-danger btn-block font-big' %>
   </div>
 <% end %>

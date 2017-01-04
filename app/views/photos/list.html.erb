@@ -1,33 +1,37 @@
 <div class="container">
-    <%if notice %>
-        <div class="alert alert-info"><%= notice %></div>
-    <% end %>
-    <% @matches.each do |match| %>
-        <li>Match<%= match.id %>&nbsp;&nbsp;&nbsp;<%= link_to 'New Photo', new_match_photo_path(match) %></li>
-    <% end %>
-    <h1>Photos</h1>
+  <% if notice %>
+    <div class="alert alert-info"> <%= notice %> </div>
+  <% end %>
+  <h1 class="text-center">Photos</h1>
 
-    <table class="table table-striped table-condensed table-hover table-responsive">
-      <thead>
+  <table class="table table-striped table-condensed table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Match id</th>
+        <th>Photo url</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @photos.each do |photo| %>
         <tr>
-          <th>Id</th>
-          <th>Match id</th>
-          <th>Photo url</th>
-          <th colspan="3"></th>
+          <td><%= photo.id %></td>
+          <td><%= photo.match_id %></td>
+          <td><%= image_tag photo.picture_url, width: '70' %></td>
+          <td><%= link_to 'Show', match_photo_path(photo.match, photo), target: '_blank' %></td>
+          <td>
+            <%= link_to 'Edit', edit_match_photo_path(photo.match, photo),
+                  target: '_blank' %>
+          </td>
+          <td>
+            <%= link_to 'Destroy', match_photo_path(photo.match, photo),
+                  method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
         </tr>
-      </thead>
-
-      <tbody>
-        <% @photos.each do |photo| %>
-          <tr>
-            <td><%= photo.id %></td>
-            <td><%= photo.match_id %></td>
-            <td><%= photo.photo_url %></td>
-            <td><%= link_to 'Edit', edit_match_photo_path(photo.match, photo), target: "_blank" %></td>
-            <td><%= link_to 'Destroy', match_photo_path(photo.match, photo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>

@@ -1,62 +1,79 @@
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <%if notice %>
-                <div class="alert alert-info"><%= notice %></div>
-            <%elsif alert %>
-                <div class="alert alert-danger"> <%= alert %> </div>
-            <% end %>
+  <div class="row">
+    <div class="col-xs-12">
+      <% if notice %>
+        <div class="alert alert-info"><%= notice %> </div>
+      <% elsif alert %>
+        <div class="alert alert-danger"> <%= alert %> </div>
+      <% end %>
 
-            <%= link_to 'New Match', new_match_path , class: "btn btn-primary", target: "_blank"%><br>
+      <%= link_to 'New Match', new_match_path,
+            class: 'btn btn-primary btn-block text-big', target: '_blank' %> <br />
 
-            <table class="table table-striped table-condensed table-hover table-responsive">
-                <thead>
-                    <tr>
-                        <th>Match id</th>
-                        <th>Team one</th>
-                        <th>Team two</th>
-                        <!--<th>Date</th>-->
-                        <th>Result</th>
-                        <th>Man of the match</th>
-                        <th> Jungles Award</th>
-                        <th colspan="5"></th>
-                    </tr>
-                </thead>
+      <table class="table table-striped table-responsive white-bg">
+        <thead>
+          <tr>
+            <th>Match id</th>
+            <th>Team one</th>
+            <th>Team two</th>
+            <th>Result</th>
+            <th>Man of the match</th>
+            <th>Jungles Award</th>
+            <th colspan="6"></th>
+          </tr>
+        </thead>
 
-                <tbody>
-                    <% @matches.each do |match| %>
-                        <tr>
-
-                            <td><%= match.id %></td>
-                            <td><%= match.first_team.name %></td>
-                            <td><%= match.opponent_team.name %></td>
-                            <td><%= match.winner %></td>
-                            <!-- Check this piece of code -->
-                            <td>
-                                <% if  match.man_of_the_match and match.man_of_the_match != 0%>
-                                    <% player_of_the_match = Player.find(match.man_of_the_match) %>
-                                    <%= player_of_the_match.name %>
-                                <% else %>
-                                    not yet decided
-                                <% end %>
-                             </td>
-                             <td>
-                                 <% if match.trump_card %>
-                                    <% trump_card =  Player.find(match.trump_card) %>
-                                    <%= trump_card.name %>
-                                <% else %>
-                                    not yet decided
-                                 <% end %>
-                             </td>
-                             <td> <%= link_to "Goals", match_goals_path(match) , target: "_blank" %> </td>
-                             <td> <%= link_to "Live Scores", match_live_scores_path(match), target: "_blank" %></td>
-                             <td> <%= link_to "Update result", end_match_path(match), target: "_blank" %></td>                             <td><%= link_to "Edit", edit_match_path(match), target: "_blank" %></td>
-                             <td><%= link_to "Delete", match, method: :delete, data: {confirm: "Are you sure?"} %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-
-            </table>
-        </div> <!-- /column -->
-    </div> <!-- /row -->
+        <tbody>
+          <% @matches.each do |match| %>
+            <tr>
+              <td><%= match.id %></td>
+              <td><%= match.first_team.name %></td>
+              <td><%= match.opponent_team.name %></td>
+              <td><%= match.winner %></td>
+              <!-- Check this piece of code -->
+              <td>
+                <% if  match.man_of_the_match and match.man_of_the_match != 0%>
+                  <% player_of_the_match = Player.find(match.man_of_the_match) %>
+                  <%= player_of_the_match.name %>
+                <% else %>
+                  not yet decided
+                <% end %>
+              </td>
+              <td>
+                <% if match.trump_card %>
+                  <% trump_card =  Player.find(match.trump_card) %>
+                  <%= trump_card.name %>
+                <% else %>
+                  not yet decided
+                <% end %>
+              </td>
+              <td>
+                <%= link_to 'Goals', match_goals_path(match),
+                      target: '_blank' %>
+              </td>
+              <td>
+                <%= link_to 'Live Scores', match_live_scores_path(match),
+                      target: '_blank' %>
+              </td>
+              <td>
+                <%= link_to 'Photos', new_match_photo_path(match),
+                      target: '_blank' %>
+              </td>
+              <td>
+                <%= link_to 'Update result', end_match_path(match),
+                      target: '_blank' %>
+              </td>
+              <td>
+                <%= link_to 'Edit', edit_match_path(match), target: '_blank' %>
+              </td>
+              <td>
+                <%= link_to 'Delete', match, method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div> <!-- /column -->
+  </div> <!-- /row -->
 </div><!-- /container -->

@@ -1,16 +1,19 @@
-<% if photo_counter % 3 == 0 %>
+<% photo_counter ||= nil %>
+<% if photo_counter && photo_counter % 3 == 0 %>
   <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
 <% end %>
+
 <div class="col-xs-12 col-sm-4">
-    <div class="thumbnail gallery">
-        <%= link_to image_tag(photo.photo_url, class: "img-responsive"),image_path(photo.photo_url), class: "fancybox" %>
-        <% if photo.match %>
-            <div class="caption text-center">
-                <% first_team = Team.find(photo.match.team1_id) %>
-                <% opponent_team = Team.find(photo.match.team2_id) %>
-                <span><%= first_team.name  %><span class="text-primary"> Vs </span>
-                <span><%= opponent_team.name %></span>
-            </div>
-        <% end %>
-    </div> <!-- end of thumbnail -->
+  <div class="thumbnail gallery">
+    <%= link_to image_tag(photo.picture_url, class: 'img-responsive'),
+              image_path(photo.picture_url), class: 'fancybox' %>
+    <% if photo.match %>
+      <div class="caption text-center">
+        <% first_team = Team.find(photo.match.team1_id) %>
+        <% opponent_team = Team.find(photo.match.team2_id) %>
+        <span><%= first_team.name  %><span class="text-primary"> Vs </span>
+        <span><%= opponent_team.name %></span>
+      </div>
+    <% end %>
+  </div> <!-- end of thumbnail -->
 </div>
