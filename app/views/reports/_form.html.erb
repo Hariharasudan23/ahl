@@ -1,37 +1,44 @@
-<%= form_for(@report) do |f| %>
-  <% if @report.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_for(@report) do |f| %>
+      <% if @report.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@report.errors.count, 'error') %>
+            prohibited this report from being saved:</h2>
 
-      <ul>
-      <% @report.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @report.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :article, class: "control-label" %>
-    <%= f.text_area :article, class: "form-control", rows: 10, columns: 50, autofocus: true%>
-  </div>
+      <div class="form-group">
+        <%= f.label :article, class: 'control-label' %>
+        <%= f.text_area :article, class: 'form-control textarea-control',
+              rows: 20, columns: 150, autofocus: true %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :caption, class: "control-label" %>
-    <%= f.text_area :caption, class: "form-control" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :caption, class: 'control-label' %>
+        <%= f.text_area :caption, class: 'form-control textarea-control' %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :image, "Report image URL", class: "control-label" %>
-    <%= f.text_field :image, class: "form-control" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :image, 'Report image URL', class: 'control-label' %>
+        <%= f.file_field :image %>
+      </div>
 
-  <div class="form-group">
-      <%= f.label :match_id %>
-      <%= f.collection_select :match_id, Match.where.not(result: -2), :id, :id, prompt: true%>
-  </div>
+      <div class="form-group">
+          <%= f.label :match_id %><br />
+          <%= f.collection_select :match_id, @ended_matches, :id, :id,
+            prompt: true %>
+      </div>
 
-  <div class="form-group">
-    <%= f.submit class: "btn btn-danger"%>
+      <div class="form-group">
+        <%= f.submit class: 'btn btn-danger' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
