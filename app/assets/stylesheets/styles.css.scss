@@ -408,14 +408,14 @@ th{
 }
 
 .form-control.textarea-control {
-  width: 100%;
   resize: none;
+  width: 100%;
 }
 
 /* Style for team motto */
 #motto{
   background: $light-green;
-  color: #fff;
+  color: $white;
   text-align: center;
   span
   {
