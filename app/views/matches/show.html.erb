@@ -42,7 +42,7 @@
             </div>
 
             <div class="panel-body">
-              <%= image_tag @man_of_the_match.photo, class: "img-responsive" %>
+              <%= image_tag @man_of_the_match.photo_url, class: "img-responsive" %>
             </div>
 
             <div class="panel-footer text-center text-green">
@@ -127,7 +127,7 @@
     <p class="space"></p>
     <div class="row">
         <div class="col-xs-5 col-sm-2">
-            <%= image_tag @first_team_captain.photo, class: "img-responsive"%><br>
+            <%= image_tag @first_team_captain.photo_url, class: "img-responsive"%><br>
             <div class="text-center">
                 <%= @first_team_captain.name %>
             </div>
@@ -137,7 +137,7 @@
             <%= @match.first_team.description %>
         </div>
         <div class="col-xs-5 col-xs-offset-2 col-sm-2 col-sm-offset-0">
-            <%= image_tag @opponent_team_captain.photo, class: "img-responsive"%><br>
+            <%= image_tag @opponent_team_captain.photo_url, class: "img-responsive"%><br>
             <div class="text-center">
                 <span><%= @opponent_team_captain.name %></span>
             </div>

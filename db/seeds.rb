@@ -54,5 +54,5 @@ end
 Photo.destroy_all
 images = %w(wmatch1(1).jpg wmatch1(2).jpg wmatch1(3).jpg wmatch1(4).jpg wmatch1(5).jpg wmatch3(1).jpg wmatch3(2).jpg wmatch3(3).jpg wmatch3(4).jpg wmatch3(5).jpg wmatch4(1).jpg wmatch4(2).jpg wmatch4(3).jpg wmatch2_1.jpg wmatch2_2.jpg wmatch2_3.jpg wmatch2_4.jpg wmatch2_5.jpg)
 images.each do |image|
-    Photo.create!(photo_url: image)
+    Photo.create!(picture: image)
 end
