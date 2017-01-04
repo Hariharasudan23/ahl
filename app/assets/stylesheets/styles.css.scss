@@ -394,7 +394,8 @@ th{
 
 .btn-green{
   background: $light-green;
-  color: #ddd;
+  color: #fff;
+  font-weight: bold;
   transition: background 0.5s linear 0.2s, color 0.5s ease-out 0.2s;
   &:hover{
     background: darken($light-green,20);
@@ -405,6 +406,12 @@ th{
   color: $light-green;
   margin-top: 50px;
 }
+
+.form-control.textarea-control {
+  width: 100%;
+  resize: none;
+}
+
 /* Style for team motto */
 #motto{
   background: $light-green;

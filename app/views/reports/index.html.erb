@@ -1,23 +1,23 @@
 <div class="container">
-    <h1 class="text-center">Articles</h1>
-    <p class="space"></p>
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            <div class="pagination">
-                <%= will_paginate @reports, renderer: BootstrapPagination::Rails %>
-            </div>
-        </div> <!-- /column -->
-    </div>
+  <h1 class="text-center">Articles</h1>
+  <p class="space"></p>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <div class="pagination">
+        <%= will_paginate @reports, renderer: BootstrapPagination::Rails %>
+      </div>
+    </div> <!-- /.column -->
+  </div> <!-- /.row -->
 
-    <% @reports.each do |report| %>
-        <%= render report, article: html(report.article[0..700] + "...") %>
-    <% end %>
+  <% @reports.each do |report| %>
+    <%= render report, article: html(report.article[0..700] + '...') %>
+  <% end %>
 
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            <div class="pagination">
-                <%= will_paginate @reports, renderer: BootstrapPagination::Rails %>
-            </div>
-        </div> <!-- /column -->
-    </div>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <div class="pagination">
+        <%= will_paginate @reports, renderer: BootstrapPagination::Rails %>
+      </div>
+    </div> <!-- /.column -->
+  </div> <!-- /.row -->
 </div>

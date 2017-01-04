@@ -3,6 +3,8 @@ class Report < ActiveRecord::Base
     extend FriendlyId
     friendly_id :caption, use: :slugged
 
+    mount_uploader :image, ImageUploader
+
     validates :article, presence: true
     validates :image, presence: true
     validates :caption, presence: true
