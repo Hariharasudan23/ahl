@@ -3,28 +3,33 @@
     <h1 class="text-center">Gallery</h1>
     <p class="space"></p>
 
-    <% @matches.each_with_index do |match, index|  %>
-      <!-- clearfix -->
-      <% if index % 3 == 0 %>
-        <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
+    <!-- No matches have occured, so display warmup match photos -->
+    <% if @matches.empty? %>
+      <%= render @photos %>
+    <% else %>
+      <% @matches.each_with_index do |match, index|  %>
+        <!-- clearfix -->
+        <% if index % 3 == 0 %>
+          <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
+        <% end %>
+
+        <div class="col-xs-12 col-sm-4" id="gallery-first">
+          <div class="thumbnail gallery-photo">
+            <%= link_to image_tag(match.photos.first.picture_url,
+                  class: 'img-responsive'), match_photos_path(match) %>
+            <div class="caption text-center">
+              <% first_team = Team.find(match.team1_id) %>
+              <% opponent_team = Team.find(match.team2_id) %>
+
+              <span class="team-name-gallery"><%= first_team.name  %></span>
+              <span> Vs </span>
+              <span class="team-name-gallery"><%= opponent_team.name %></span>
+
+              <p class="photo-count"><%= match.photos.count %> photos</p>
+            </div> <!-- /.caption -->
+          </div> <!-- /.thumbnail -->
+        </div> <!-- /#gallery-first -->
       <% end %>
-
-      <div class="col-xs-12 col-sm-4" id="gallery-first">
-        <div class="thumbnail gallery-photo">
-          <%= link_to image_tag(match.photos.first.picture_url,
-                class: 'img-responsive'), match_photos_path(match) %>
-          <div class="caption text-center">
-            <% first_team = Team.find(match.team1_id) %>
-            <% opponent_team = Team.find(match.team2_id) %>
-
-            <span class="team-name-gallery"><%= first_team.name  %></span>
-            <span> Vs </span>
-            <span class="team-name-gallery"><%= opponent_team.name %></span>
-
-            <p class="photo-count"><%= match.photos.count %> photos</p>
-          </div> <!-- /.caption -->
-        </div> <!-- /.thumbnail -->
-      </div> <!-- /#gallery-first -->
     <% end %>
   </div> <!-- /row -->
 </div> <!-- /container -->
