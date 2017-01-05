@@ -1023,9 +1023,11 @@ ul.pagination a:hover{
   line-height: 30px;
   line-height: 2.2em;
 }
-#about-rules li a{
+
+#about-rules li a, .nav-pills.leaderboard-pills li a {
   font-size: 110%;
 }
+
 #about, #rules{
   margin-top: 20px;
   background: #fff;

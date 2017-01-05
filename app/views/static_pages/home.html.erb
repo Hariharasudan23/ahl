@@ -135,27 +135,33 @@
         <h2 class="ml--15">Leaderboard</h2>
       </div>
       <div class="col-xs-12 white-bg border-with-shadow pt-20 mb-30">
-        <table class="table table-responsive table-striped leaderboard">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Team</th>
-              <th>Matches</th>
-              <th>Points</th>
-            </tr>
-          </thead>
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills leaderboard-pills" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#men-leaderboard" aria-controls="men-leaderboard"
+               role="tab" data-toggle="tab">
+              Men
+            </a>
+          </li>
+          <li role="presentation">
+            <a href="#women-leaderboard" aria-controls="women-leaderboard"
+               role="tab" data-toggle="tab">
+              Women
+            </a>
+          </li>
+        </ul>
 
-          <tbody>
-            <% @teams.each do |team| %>
-              <tr>
-                <td> <%= image_tag team.logo, width: "40", height: "25" %></td>
-                <td> <%= team.name %> </td>
-                <td> <%= team.matches_played %> </td>
-                <td> <%= team.points %> </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active"
+               id="men-leaderboard">
+            <%= render 'leaderboard', teams: @men_teams %>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="women-leaderboard">
+            <%= render 'leaderboard', teams: @women_teams %>
+          </div>
+        </div>
+        <!-- end -->
       </div>
 
       <!--  Top scorers -->
