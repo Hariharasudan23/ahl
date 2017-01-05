@@ -1,7 +1,7 @@
 <% players = [
-  {name: "Vijay", goals: 20, image: "vijay.jpg"},
-  {name: "Lokesh", goals: 15, image: "lokesh.jpg"},
-  {name: "Siva", goals: 13, image: "siva.jpg"}
+  { name: 'Siva', goals: 8, image: 'siva.jpg' },
+  {name: 'Thangapandian', goals: 7, image: 'pandian.jpg' },
+  {name: 'Ram', goals: 7, image: 'ram.jpg' }
 ] %>
 
 <div class="col-xs-12 white-bg border-with-shadow">
@@ -9,13 +9,13 @@
     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 pt-20">
       <div class="panel panel-warning">
         <div class="panel-body">
-          <%= image_tag player[:image], class: "img-responsive" %>
+          <%= image_tag player[:image], class: 'img-responsive' %>
         </div>
 
         <div class="panel-footer text-center">
           <span class="text-black"><%= player[:name] %></span>
           <div class="team-link">
-            <span class="text-green"><%= pluralize(player[:goals], "goal") %></span>
+            <span class="text-green"><%= pluralize(player[:goals], 'goal') %></span>
           </div>
         </div> <!-- /panel footer -->
       </div> <!--  end of panel -->

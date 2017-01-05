@@ -166,14 +166,14 @@
 
       <!--  Top scorers -->
       <div class="col-xs-12">
-        <% if @matches_ended > 5 %>
+        <% if @matches_ended > 2 %>
           <h2 class="ml--15 mt-30">Top Scorers</h2>
         <% else %>
-          <h2 class="ml--15 mt-30">Top Scorers - 2015</h3>
+          <h2 class="ml--15 mt-30">Top Scorers - 2016</h3>
         <% end %>
       </div>
-      <!-- Top scorers of 2015 and 2016 -->
-      <% if @matches_ended > 5 %>
+      <!-- Top scorers of 2016 and 2017 -->
+      <% if @matches_ended > 2 %>
         <%= render 'top_scorers', players: @top_scorers %>
       <% else %>
         <%= render 'previous_top_scorers' %>
