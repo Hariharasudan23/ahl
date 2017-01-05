@@ -1,0 +1,21 @@
+<table class="table table-responsive table-striped leaderboard">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Team</th>
+      <th>Matches</th>
+      <th>Points</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% teams.each do |team| %>
+      <tr>
+        <td> <%= image_tag team.logo, width: '40', height: '25' %> </td>
+        <td> <%= team.name %> </td>
+        <td> <%= team.matches_played %> </td>
+        <td> <%= team.points %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
