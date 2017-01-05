@@ -1,28 +1,33 @@
 Rails.application.routes.draw do
-
   resources :players
   resources :reports
   resources :teams
+
   get '/photos' => 'photos#all'
+
   resources :matches do
-      resources :live_scores, only: [:index, :create, :destroy]
-      resources :goals, only: [:index, :create, :destroy]
-      resources :photos
+    resources :live_scores, only: [:index, :create, :destroy]
+    resources :goals, only: [:index, :create, :destroy]
+    resources :photos
   end
 
-  #for updating match results
-  patch '/end_match/:id' => "matches#end_match"
-  get '/end_match/:id' => "matches#end", as: "end_match"
+  # For warmup match photos
+  post '/warmup_match_photos' => 'photos#create_warmup_match_photo',
+    as: :warmup_match_photos
 
-  get '/live_score' => "live_scores#broadcast"
+  # For updating match results
+  patch '/end_match/:id' => 'matches#end_match'
+  get '/end_match/:id' => 'matches#end', as: 'end_match'
+
+  get '/live_score' => 'live_scores#broadcast'
   root 'static_pages#home'
-  get '/about' => "static_pages#about", as: "about"
+  get '/about' => 'static_pages#about', as: 'about'
 
-#for admin
-get '/goals' => 'goals#index'
-get '/all_matches' => 'matches#list'
-get '/all_reports' => 'reports#list'
-get '/all_photos' => 'photos#list'
+  # for admin
+  get '/goals' => 'goals#index'
+  get '/all_matches' => 'matches#list'
+  get '/all_reports' => 'reports#list'
+  get '/all_photos' => 'photos#list'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   before_action :authenticate, except: [:index, :show, :all]
-  before_action :set_match, except: [:all,:list]
+  before_action :set_match,
+    except: [:all, :list, :new_warmup_match_photo, :create_warmup_match_photo]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -8,6 +9,7 @@ class PhotosController < ApplicationController
   end
 
   def all
+    @photos = Photo.all
     @matches = Match.where(id: Photo.pluck(:match_id).uniq).order(id: :desc)
   end
 
@@ -26,8 +28,7 @@ class PhotosController < ApplicationController
     @photo = @match.photos.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @photo = @match.photos.new(photo_params)
@@ -45,6 +46,14 @@ class PhotosController < ApplicationController
     end
   end
 
+  def create_warmup_match_photo
+    @photo = Photo.new(photo_params)
+    if @photo.save
+      redirect_to all_matches_url, notice: 'Warmup match photo created!'
+    else
+      redirect_to all_matches_url, alert: 'Could not save photo'
+    end
+  end
 
   def update
     respond_to do |format|
