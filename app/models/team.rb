@@ -12,6 +12,14 @@ class Team < ActiveRecord::Base
     name.downcase.capitalize
   end
 
+  def men?
+    gender == 'm'
+  end
+
+  def tournament_opponents
+    men? ? Team.men.where.not(id: id) : Team.women.where.not(id: id)
+  end
+
   def team_captain
     Player.find(captain)
   end
@@ -45,7 +53,6 @@ class Team < ActiveRecord::Base
 
   # Returns the goals scored by versus team versus opponent
   def goals_scored(opponent_id)
-    players = self.players
     Goal.where(player_id: players, opponent_id: opponent_id).count
   end
 

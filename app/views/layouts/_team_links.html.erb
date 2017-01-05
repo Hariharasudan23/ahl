@@ -1,0 +1,5 @@
+<% teams.each do |team| %>
+  <li>
+    <%= link_to titlecase(team.name), Team.friendly.find(team.id) %>
+  </li>
+<% end %>

@@ -9,7 +9,8 @@
         <span class="icon-bar"></span>
       </button>
        <%= link_to root_path, class: "navbar-brand" do%>
-        <%= image_tag "ahl_logo.png",width: "25", height: "25", alt: "ahl logo", class: "navbar-logo"%>
+        <%= image_tag 'ahl_logo.png', width: '25',
+              height: '25', alt: 'ahl logo', class: 'navbar-logo' %>
         <span>Anna Hockey League</span>
        <% end %>
     </div>
@@ -17,34 +18,41 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse text-center" id="links">
       <ul class="nav navbar-nav center-links">
-        <li>
-          <%= link_to "Home", root_path %>
-        </li>
-        <li>
-          <%= link_to "About", about_path %>
-        </li>
-        <li><%= link_to "News", reports_path %></li>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'About', about_path %></li>
+        <li><%= link_to 'News', reports_path %></li>
         <!-- Dropdown for teams -->
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Teams</a>
-            <ul class="dropdown-menu">
-              <% teams = Team.all %>
-              <% teams.each do |team| %>
-                    <li>
-                        <%= link_to titlecase(team.name), Team.friendly.find(team.id) %>
-                    </li>
-              <%end%>
-           </ul>
-       </li>
-        <li>
-            <%= link_to "Fixtures", matches_path %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+             role="button" aria-haspopup="true" aria-expanded="false">
+             Teams
+          </a>
+          <ul class="dropdown-menu multi-level">
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Men
+              </a>
+              <ul class="dropdown-menu">
+                <%= render 'layouts/team_links', teams: Team.men %>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Women
+              </a>
+              <ul class="dropdown-menu">
+                <%= render 'layouts/team_links', teams: Team.women %>
+              </ul>
+            </li>
+          </ul>
         </li>
         <li>
-            <%= link_to "Gallery", photos_path %>
+          <%= link_to 'Fixtures', matches_path %>
+        </li>
+        <li>
+          <%= link_to 'Gallery', photos_path %>
         </li>
       </ul>
-
-
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
