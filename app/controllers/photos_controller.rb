@@ -49,9 +49,9 @@ class PhotosController < ApplicationController
   def create_warmup_match_photo
     @photo = Photo.new(photo_params)
     if @photo.save
-      redirect_to all_matches_url, notice: 'Warmup match photo created!'
+      redirect_to all_photos_url, notice: 'Warmup match photo created!'
     else
-      redirect_to all_matches_url, alert: 'Could not save photo'
+      redirect_to all_photos_url, alert: 'Could not save photo'
     end
   end
 

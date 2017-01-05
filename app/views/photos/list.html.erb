@@ -2,6 +2,11 @@
   <% if notice %>
     <div class="alert alert-info"> <%= notice %> </div>
   <% end %>
+
+  <% if alert %>
+    <div class="alert alert-danger"> <%= alert %> </div>
+  <% end %>
+
   <h1>Warmup match photos</h1>
 
   <%= form_for(Photo.new, url: warmup_match_photos_path) do |f| %>
