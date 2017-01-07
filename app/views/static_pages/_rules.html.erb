@@ -1,0 +1,28 @@
+<h3>Info</h3>
+<ul>
+  <li><span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;
+    The League consists of three levels, each level consisting of 15 matches.
+  </li>
+  <li>
+    <span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;
+  In each level every team will play five matches.
+  </li>
+</ul>
+
+<h3>Rules</h3>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#rules-men" aria-controls="rules-men" role="tab" data-toggle="tab">Men</a></li>
+  <li role="presentation"><a href="#rules-women" aria-controls="rules-women" role="tab" data-toggle="tab">Women</a></li>
+</ul>
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="rules-men">
+    <%= render 'rules_men' %>
+  </div> <!-- /end of first tab content -->
+
+  <!-- Second tab content -->
+  <div role="tabpanel" class="tab-pane fade" id="rules-women">
+    <%= render 'rules_women' %>
+  </div><!-- /end of second tab content -->
+</div><!-- /end of tab content -->

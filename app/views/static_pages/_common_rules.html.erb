@@ -1,0 +1,43 @@
+<% common_rules.each do |rule| %>
+  <li>
+    <span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
+    <%= rule %>
+  </li>
+<% end %>
+
+<li>
+  <span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
+  Points
+  <dl class="dl-horizontal">
+    <dt>Win</dt>
+    <dd>3 points</dd>
+  <dl>
+
+  <dl class="dl-horizontal">
+    <dt>Draw</dt>
+    <dd>1 point each</dd>
+  <dl>
+
+  <dl class="dl-horizontal">
+    <dt>Lose</dt>
+    <dd>0 points</dd>
+  </dl>
+</li>
+
+<li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
+  Cards
+  <dl class="dl-horizontal">
+    <dt>Green</dt>
+    <dd>Player will be suspended for 2 minutes and substitution is not allowed</dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt>Yellow</dt>
+    <dd>Player will be suspended for 5 minutes and substitution is not allowed</dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <dt>Red</dt>
+    <dd> player will be dismissed from the current match and substitution will not be allowed</dd>
+  </dl>
+</li>

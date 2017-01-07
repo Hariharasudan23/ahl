@@ -1,167 +1,24 @@
 <div class ="container">
   <div class="row about">
     <div class="col-xs-10 col-xs-offset-1">
+      <!-- Nav tabs -->
+      <ul class="nav nav-pills" role="tablist" id="about-rules">
+        <li role="presentation" class="active"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
+        <li role="presentation"><a href="#rules" aria-controls="rules" role="tab" data-toggle="tab">Rules</a></li>
+      </ul>
 
-
-        <!-- Nav tabs -->
-        <ul class="nav nav-pills" role="tablist" id="about-rules">
-          <li role="presentation" class="active"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
-          <li role="presentation"><a href="#rules" aria-controls="rules" role="tab" data-toggle="tab">Rules</a></li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane fade in active" id="about">
+      <!-- Tab content -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="about">
           <p class="space"></p>
-          <p>
-            <b>Anna Hockey League</b> (AHL) is an exclusive tournament in the game of Field Hockey, our national game. AHL is conducted by the student players from the constituent colleges of Anna University-Chennai i.e. <b>College of Engineering Guindy</b> (CEG), <b>Alagappa College of Technology</b> (ACT) and <b>Madras Institute of Technology</b> (MIT) - Chrompet.
-          </p>
-
-          <p>
-            This league is the first of its kind in the history of Anna University-Chennai, which is solely conducted by the student players of the above mentioned colleges with the perception of drawing interest towards our national game as well as to compete themselves to develop their individual skills.
-          </p>
-
-          <p>
-              AHL started it's journey from the year (2008) and it is planned by the student players that to conduct this AHL every year in the even semesters (January to April) to attract more viewers and to create an awareness among the students of the Anna University-Chennai campus about the game 'Hockey'.
-          </p>
-
-          <p>
-              AHL'08 was inaugurated by <b>Dr.J.P.Sukumar</b>, Director of Physical Education, Anna University Sports Board (AUSB) with the support of all the staffs in the University Sports Board. Special interest is being shown on this league by the Assistant Physical Directors of USB <b>Dr.B.Balakumaran</b>, <b>Mr.S.Balaganesh</b> and <b>Ms.Evelyn Synthia</b>.
-          </p>
-
-          <p>
-             The funds for conducting the league is being collected from interested organizations and from the alumni players of the above mentioned colleges and is handled perfectly by the Mentor <b>Mr.S.Balaganesh</b>- Assistant Physical Director, Anna University, Chennai.
-          </p>
-
-          <p>
-               Apart from the regular academic events, the student players involve themselves in organizing this league to develop their inter-personal skills, leadership skills and also the managerial skills.
-          </p>
-
-
+          <%= render 'about_content' %>
         </div> <!-- /end of first tab content -->
 
-
-        <!-- Second tab -->
-            <div role="tabpanel" class="tab-pane fade" id="rules">
-
-          <h3>Info</h3>
-            <ul>
-              <li><span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;
-                The League consists of three levels, each level consisting of 15 matches.
-              </li>
-              <li>
-                <span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;
-              In each level every team will play five matches.
-              </li>
-
-
-            <h3>Rules</h3>
-            <ul class="rules-list">
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 The game is equally divided into 5 rounds with the period of 10 minutes each.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 Each team consists of maximum of 9 players on the field including one goal keeper.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 Teams can have any number of bench players under the condition that each player should play at least one round.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 The playing sides will be changed in each round with 2 minutes break and a 4 minute between third and fourth rounds.
-              </li>
-
-               <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 In the 2nd and 3rd rounds team should play with amateur players(first and second year players), with maximum of three second year players allowed. Violation will lead to penalty stroke.
-              </li>
-
-               <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 The goal needs to be scored only from the D-circle.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 Own goal won'tai be awarded.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 The ball should be moved 5 yards from any place in taking a foul.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 Hitting the ball is not allowed.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 Sweeping, tapping and slapping the ball is allowed.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 Any appeal to the umpire can be done by the captain only.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 Only three defenders (including goal keeper) and four attackers are allowed in the penalty corner. In penalty corner, the defenders need to run from the goal post.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 The ball should be started from the 25 yards line if it crosses the back line.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 The size of the field is 70x50 yards.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 Field umpire decision is final.
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 All players should wear proper uniform.
-              </li>
-
-               <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 Points
-
-                    <dl class="dl-horizontal">
-                      <dt>Win</dt>
-                      <dd>3 points</dd>
-                    <dl>
-
-                    <dl class="dl-horizontal">
-                      <dt>Draw</dt>
-                      <dd>1 point each</dd>
-                    <dl>
-
-                    <dl class="dl-horizontal">
-                      <dt>Lose</dt>
-                      <dd>0 points</dd>
-
-              </li>
-
-              <li><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;
-                 Cards
-                  <dl class="dl-horizontal">
-                    <dt>Green</dt>
-                     <dd>Player will be suspended for 2 minutes and substitution is not allowed</dd>
-                  </dl>
-
-                  <dl class="dl-horizontal">
-                    <dt>Yellow</dt>
-                     <dd>Player will be suspended for 5 minutes and substitution is not allowed</dd>
-                  </dl>
-
-                  <dl class="dl-horizontal">
-                    <dt>Red</dt>
-                     <dd> player will be dismissed from the current match and substitution will not be allowed</dd>
-                  </dl>
-              </li>
-            </ul> <!-- /end of rules -->
-
-
-          </div>  <!-- /end of second tab content -->
-        </div>  <!-- /end of tab content -->
+        <!-- Second tab content -->
+        <div role="tabpanel" class="tab-pane fade" id="rules">
+          <%= render 'rules' %>
+        </div><!-- /end of second tab content -->
+      </div><!-- /end of tab content -->
 
     </div> <!-- end of column -->
   </div> <!-- end of row -->
