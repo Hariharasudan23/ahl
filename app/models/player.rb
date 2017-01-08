@@ -14,6 +14,9 @@ class Player < ActiveRecord::Base
   validates :yellow_cards, presence: true, numericality: true
   validates :gender, presence: true, inclusion: { in: %w(m f) }
 
+  scope :men, -> { where(gender: 'm') }
+  scope :women, -> { where(gender: 'f') }
+
   def goals
     Goal.where(player_id: id).count
   end
