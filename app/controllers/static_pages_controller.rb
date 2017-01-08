@@ -10,7 +10,8 @@ class StaticPagesController < ApplicationController
       @live_score = @current_match.live_scores.last
     end
 
-    @top_scorers = Player.order(goals_count: :desc).limit(3)
+    @men_top_scorers = Player.men.order(goals_count: :desc).limit(3)
+    @women_top_scorers = Player.women.order(goals_count: :desc).limit(3)
     @matches_ended = Match.where.not(result: -2).count
 
     # static content

@@ -174,7 +174,31 @@
       </div>
       <!-- Top scorers of 2016 and 2017 -->
       <% if @matches_ended > 2 %>
-        <%= render 'top_scorers', players: @top_scorers %>
+        <ul class="nav nav-pills top-scorers-pills" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#men-top-scorers" aria-controls="men-top-scorers"
+               role="tab" data-toggle="tab">
+              Men
+            </a>
+          </li>
+          <li role="presentation">
+            <a href="#women-top-scorers" aria-controls="women-top-scorers"
+               role="tab" data-toggle="tab">
+              Women
+            </a>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active"
+               id="men-top-scorers">
+            <%= render 'top_scorers', players: @men_top_scorers %>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="women-top-scorers">
+            <%= render 'top_scorers', players: @women_top_scorers %>
+          </div>
+        </div>
       <% else %>
         <%= render 'previous_top_scorers' %>
       <% end %>
