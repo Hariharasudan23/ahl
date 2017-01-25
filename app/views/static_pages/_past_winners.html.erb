@@ -1,23 +1,23 @@
 <% year = 2016 %>
 <% [%w[violet.png deadly-dribblerz], %w[white.png rising-warriorz], %w[white.png rising-warriorz], %w[yellow.png yo-yo-yakz], %w[blue.png sizzling-shooterz], %w[green.png crouching-griffinz], %w[yellow.png yo-yo-yakz], %w[blue.png sizzling-shooterz], %w[yellow.png yo-yo-yakz]].each_with_index do |team, index| %>
-    <% if index == 0 %>
-        <div class="col-xs-6 col-sm-2 col-sm-offset-1">
-    <% elsif index == 5 %>
-        <div class="col-xs-6 col-sm-2 col-sm-offset-2">
-    <% elsif index > 5 %>
-        <div class="col-xs-6 col-sm-2">
-    <%else%>
-        <div class="col-xs-6 col-sm-2">
-    <% end %>
-            <div class="thumbnail img-responsive past-winners">
-                <% team_url = "/teams/#{team[1]}" %>
-                <%= link_to team_url do %>
-                    <%= image_tag team[0], alt: team[0].split(".")[0] + " team"%>
-                <% end %> <!-- /link -->
-                    <div class="caption text-center">
-                        <span class="text-pink"><%= year %></span>
-                    </div>
-            </div> <!-- /thumbnail -->
-            <% year -= 1 %>
-        </div> <!-- /column -->
+  <% if index == 0 %>
+    <div class="col-xs-6 col-sm-2 col-sm-offset-1">
+  <% elsif index == 5 %>
+    <div class="col-xs-6 col-sm-2 col-sm-offset-2">
+  <% elsif index > 5 %>
+    <div class="col-xs-6 col-sm-2">
+  <% else %>
+    <div class="col-xs-6 col-sm-2">
+  <% end %>
+    <div class="thumbnail img-responsive past-winners">
+      <% team_url = "/teams/#{team[1]}-men" %>
+      <%= link_to team_url do %>
+          <%= image_tag team[0], alt: team[0].split(".")[0] + " team" %>
+      <% end %> <!-- /link -->
+      <div class="caption text-center">
+        <span class="text-pink"><%= year %></span>
+      </div>
+    </div> <!-- /thumbnail -->
+  <% year -= 1 %>
+  </div> <!-- /column -->
 <% end %>
